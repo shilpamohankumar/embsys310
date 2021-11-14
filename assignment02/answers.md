@@ -95,8 +95,9 @@ a) What is the value of “counter” at the end of the program (halting at the 
 	
 b) Explain why the counter value has changed?
 	Pointer is a variable which holds the address of another variable. Counter variable is stored in the SRAM address 0x20000000. Pointer variable is pointing to the address 0x20000000. Using dereffering operator, we are incrementing the address contents which in turn reflecting in counter variable.
-----------------------------------------------------------------------------------------------------------------------------------------------
-
+	--------------------------------------------------------------------------------------------------------------------------------------
+	
+	
 7. Change the setting of IAR to run the same program on the evaluation board:
 int counter = 0x0;
 int main() {

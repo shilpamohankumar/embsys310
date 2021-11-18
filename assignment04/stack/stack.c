@@ -46,10 +46,6 @@ int stack_put(char data)
         getPtr = &StackStore[0];
     }    
     
-    if(getPtr == &StackStore[STACK_SIZE-1])
-    {
-      getPtr = &StackStore[0];
-    }
     // If putPtr has not been set
     if(putPtr == 0) 
     {

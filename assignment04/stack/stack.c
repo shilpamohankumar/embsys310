@@ -25,7 +25,7 @@ void stack_init(void)
 // Add data to stack
 // If stack is full return error
 // Otherwise return success
-int stack_put(char data)
+int push(char data)
 {
     // stack is full
   //  if (getPtr == &StackStore[STACK_SIZE-1] && putPtr == &StackStore[STACK_SIZE-1])
@@ -44,8 +44,8 @@ int stack_put(char data)
     if (getPtr == 0 )
     {
         getPtr = &StackStore[0];
-    }    
-    
+    }   
+
     // If putPtr has not been set
     if(putPtr == 0) 
     {
@@ -64,7 +64,7 @@ int stack_put(char data)
 // Get data from stack
 // If stack is empty return error
 // Otherwise return success
-int stack_get(char* data)
+int pop(char* data)
 {   
     // stack is empty
     if (getPtr == 0)

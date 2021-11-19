@@ -3,7 +3,7 @@
 #define __STACK_H__
 
 void stack_init(void);
-int stack_put(char data);
-int stack_get(char* data);
+int push(char data);
+int pop(char* data);
 
 #endif

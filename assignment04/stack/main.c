@@ -16,7 +16,7 @@ int main()
     stack_init();
     
     // Act:
-    result1 = stack_get(&testChar);
+    result1 = pop(&testChar);
       
     // Assert:
     assert(-1 == result1);
@@ -33,8 +33,8 @@ int main()
     stack_init();
     
     // Act:
-    result1 = stack_put('A');
-    result2 = stack_get(&testChar);
+    result1 = push('A');
+    result2 = pop(&testChar);
     
     // Assert:
     assert(0 == result1);
@@ -50,18 +50,18 @@ int main()
     stack_init();
     
     // Act:
-    stack_put('A');
-    stack_put('B');
-    stack_put('C');                                    
+    push('A');
+    push('B');
+    push('C');                                    
     
     // Assert:
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('C' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('B' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('A' == testChar);
 
     
@@ -73,20 +73,20 @@ int main()
     stack_init();
     
     // Act:
-    stack_put('A');
-    stack_put('B');
-    stack_put('C');
+    push('A');
+    push('B');
+    push('C');
     
     // Assert:
-    assert(-1 == stack_put('D'));
+    assert(-1 == push('D'));
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('C' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('B' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('A' == testChar);
 
 
@@ -99,23 +99,23 @@ int main()
     stack_init();
     
     // Act:
-    stack_put('A');
-    stack_put('B');
-    stack_put('C');
+    push('A');
+    push('B');
+    push('C');
     
     // Assert:
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('C' == testChar);
 
-    assert(0 == stack_put('D'));
+    assert(0 == push('D'));
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('D' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('B' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('A' == testChar);
 
     // ***********************************************************************
@@ -126,33 +126,33 @@ int main()
     stack_init();
     
     // Act:
-    stack_put('A');
-    stack_put('B');
-    stack_put('C');
+    push('A');
+    push('B');
+    push('C');
     
     // Assert:
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('C' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('B' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('A' == testChar);
 
-    assert(0 == stack_put('D'));
-    assert(0 == stack_put('E'));
-    assert(0 == stack_put('F'));
+    assert(0 == push('D'));
+    assert(0 == push('E'));
+    assert(0 == push('F'));
     
-    assert(-1 == stack_put('Z'));
+    assert(-1 == push('Z'));
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('F' == testChar);
    
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('E' == testChar);
 
-    assert(0 == stack_get(&testChar));
+    assert(0 == pop(&testChar));
     assert('D' == testChar);
 
     return 0;

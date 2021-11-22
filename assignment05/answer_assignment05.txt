@@ -1,0 +1,20 @@
+1. Create a function in “C” that allows swapping of two pointers.
+a. Explain what the “main” function does in order to setup the input arguments prior to calling the swap_pointer() function?
+
+		PUSH {R3-R7, LR}	// SP = 0x20001FE8
+		MOVS R0, #1		//Storing x=1 to stack 
+		STR R0, [SP, #0x4]	//&x = SP+0x20001FE8 = 0x20001FEC
+		MOVS R0, #2		//Storing y=2 to stack
+		STR R0, [SP]		//&y = 0x20001FE8
+		ADD R0,SP,#0x4		//Initializing pointer variable xp to address of variable x
+		STR R0, [SP, #0xc]	
+		MOV R0, SP		//Initializing pointer variable yp to address of variable x
+		STR R0, [SP, #0x8]	
+		ADD R1, SP, #x8		//R1 initialized to address of pointer variable xp 0x20001FF4
+		ADD R0, SP, #0xc	//R0 initialized to address of pointer variable yp 0x20001FF0
+	Main is storing Pointer variable addresses to register R0 and R1
+
+
+b. What are the values in R0 & R1 when swap_pointer() is called?
+		R0 = 0x20001FF4
+		R1 = 0x20001FF0

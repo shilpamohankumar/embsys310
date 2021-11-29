@@ -56,19 +56,19 @@ GPIOA_BIT_5 EQU 0x20
 
 control_user_led1
     // <TODO> Implement function in assembly
-    PUSH {LR}
-    LDR R2,=GPIOA_BASE+GPIOA_ODR
-    LDR R3, [R2]
-    CMP R0, #01
+    PUSH {LR}                           //Save LR to stack as this is not a leave function
+    LDR R2,=GPIOA_BASE+GPIOA_ODR        //load GPIOA_ODR register address to R2    
+    LDR R3, [R2]                        //Read GPIO_ODR register value                                
+    CMP R0, #01                         //Check if LED=0 or LED=1
     BNE led_off 
-    ORR R3, R3, #0x20
+    ORR R3, R3, #0x20                   //LED ON
     B finish
 //led_off    AND R3, R3, #0xFFFFFFDF
-led_off   MVN R0, #0x20
+led_off   MVN R0, #0x20                 //LED OFF
           AND R3, R3, R0
-finish    STR R3, [R2]
+finish    STR R3, [R2]                  //Store back value to ODR regsiter
     MOVS R0, R1
-    BL delay
+    BL delay                            //Call delay function with input counter value
     POP {LR}
-    BX LR
+    BX LR                               //Restore LR to return to main
     END

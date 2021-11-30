@@ -4,8 +4,7 @@ Description     : Assembly language function for controlling the user LED
 *******************************************************************************/   
 
     PUBLIC enable_rcc        // Exports symbols to other modules
-    EXTERN RCC_AHB2ENR_OFFSET
-    EXTERN BIT_BAND_BASE
+
 // Code is split into logical sections using the SECTION directive.
 // Source: http://ftp.iar.se/WWWfiles/arm/webic/doc/EWARM_AssemblerReference.ENU.pdf
 // SECTION  section  :type [:flag] [(align)]
@@ -56,7 +55,7 @@ enable_rcc
     // <TODO> Implement function in assembly
     MOV R1, #04
     MUL R0, R0, R1              // 0*4 = 0
-  //  MOV R1, #0x42000000    
+  //  MOV R1, #0x42000000   
     MOVW R1, #0x0000            //Move bind band base address to R1
     MOVT R1, #0x4200
     ADDS R0, R0, R1              // 0x42000000 + (0*4)

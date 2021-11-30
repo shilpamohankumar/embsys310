@@ -6,10 +6,6 @@
 #define RCC_BASE 0x40021000
 #define RCC_AHB2ENR (*((unsigned int*)(RCC_BASE + 0x4C)))
 
-//SHILPA
-#define BIT_BAND_BASE ((unsigned int*)0x42000000)
-#define RCC_AHB2ENR_OFFSET ((unsigned int*)0x2104c)
-
 #define GPIOB_BASE 0x48000400
 #define GPIOB_MODER (*((unsigned int*)(GPIOB_BASE + 0x00)))
 #define GPIOB_ODR (*((unsigned int*)(GPIOB_BASE + 0x14)))

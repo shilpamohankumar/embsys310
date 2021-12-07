@@ -1,0 +1,13 @@
+2. Generate the map file for your program and provide details on:
+a. How much total ROM your program is occupying?
+	324 bytes of readonly  code memory
+     	80 bytes of readonly  data memory
+
+b. How much total RAM your program is using?
+	  8'196 bytes of readwrite data memory
+
+c. What part of your program is using the most ROM?
+	rt7M_tl.a library
+
+d. What part of your program is using the most RAM?
+	STACK
